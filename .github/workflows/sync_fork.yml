@@ -15,5 +15,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           owner: dema-trading-ai
+          auto_approve: true
           base: development
           head: development
