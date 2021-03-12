@@ -1,9 +1,10 @@
-"""This module contains helper functions that have to do with the config 
-file, like validation and currency support"""
+# This module contains helper functions that have to do with the config
+# file, like validation and currency support
 
 import json
 import sys
 from .validations import validate_config
+from .load_strategy import load_strategy_from_config
 
 
 def read_config() -> dict:
@@ -28,6 +29,3 @@ def print_pairs(config_json):
     for i in config_json['pairs']:
         coins += str(i) + ' '
     print("[INFO] Watching pairs: %s" % coins)
-
-    
-

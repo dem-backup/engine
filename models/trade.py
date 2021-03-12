@@ -1,4 +1,4 @@
-from pandas import DataFrame, Series
+from pandas import Series
 
 # ======================================================================
 # Trade class is used by TradingModule for registering trades and tracking
@@ -6,6 +6,7 @@ from pandas import DataFrame, Series
 #
 # © 2021 DemaTrading.AI
 # ======================================================================
+from datetime import datetime
 
 
 class Trade:
@@ -22,7 +23,7 @@ class Trade:
     opened_at = None
     closed_at = None
 
-    def __init__(self, ohlcv: Series, trade_amount: float, date: int):
+    def __init__(self, ohlcv: Series, trade_amount: float, date: datetime):
         self.status = 'open'
         self.pair = ohlcv['pair']
         self.open = ohlcv['close']
@@ -30,7 +31,7 @@ class Trade:
         self.currency_amount = (trade_amount / ohlcv['close'])
         self.opened_at = date
 
-    def close_trade(self, reason: str, date: int):
+    def close_trade(self, reason: str, date: datetime):
         """
         Closes this trade and updates stats according to latest data.
         """
